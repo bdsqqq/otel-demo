@@ -23,6 +23,9 @@ importers:
       '@opentelemetry/semantic-conventions':
         specifier: ^1.25.0
         version: 1.25.0
+      '@vercel/otel':
+        specifier: ^1.8.3
+        version: 1.8.3(@opentelemetry/api-logs@0.52.0)(@opentelemetry/api@1.9.0)(@opentelemetry/instrumentation@0.52.0(@opentelemetry/api@1.9.0))(@opentelemetry/resources@1.25.0(@opentelemetry/api@1.9.0))(@opentelemetry/sdk-logs@0.52.0(@opentelemetry/api@1.9.0))(@opentelemetry/sdk-metrics@1.25.0(@opentelemetry/api@1.9.0))(@opentelemetry/sdk-trace-base@1.25.0(@opentelemetry/api@1.9.0))
       next:
         specifier: 14.2.4
         version: 14.2.4(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -419,6 +422,18 @@ packages:
 
   '@ungap/structured-clone@1.2.0':
     resolution: {integrity: sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==}
+
+  '@vercel/otel@1.8.3':
+    resolution: {integrity: sha512-cyTpXDMeTSb56XS4+DnoHwZVDGgOzZbIizKBJN9JA/1jhw7VzygmLUD8iwPyJVB3YNWVrIXgSq1TM9OMrpbAxQ==}
+    engines: {node: '>=18'}
+    peerDependencies:
+      '@opentelemetry/api': ^1.7.0
+      '@opentelemetry/api-logs': ^0.46.0
+      '@opentelemetry/instrumentation': ^0.46.0
+      '@opentelemetry/resources': ^1.19.0
+      '@opentelemetry/sdk-logs': ^0.46.0
+      '@opentelemetry/sdk-metrics': ^1.19.0
+      '@opentelemetry/sdk-trace-base': ^1.19.0
 
   acorn-import-attributes@1.9.5:
     resolution: {integrity: sha512-n02Vykv5uA3eHGM/Z2dQrcD56kL8TyDb2p1+0P83PClMnC/nc+anbQRhIOWnSq4Ke/KvDPrY3C9hDtC/A3eHnQ==}
@@ -2124,6 +2139,16 @@ snapshots:
       eslint-visitor-keys: 3.4.3
 
   '@ungap/structured-clone@1.2.0': {}
+
+  '@vercel/otel@1.8.3(@opentelemetry/api-logs@0.52.0)(@opentelemetry/api@1.9.0)(@opentelemetry/instrumentation@0.52.0(@opentelemetry/api@1.9.0))(@opentelemetry/resources@1.25.0(@opentelemetry/api@1.9.0))(@opentelemetry/sdk-logs@0.52.0(@opentelemetry/api@1.9.0))(@opentelemetry/sdk-metrics@1.25.0(@opentelemetry/api@1.9.0))(@opentelemetry/sdk-trace-base@1.25.0(@opentelemetry/api@1.9.0))':
+    dependencies:
+      '@opentelemetry/api': 1.9.0
+      '@opentelemetry/api-logs': 0.52.0
+      '@opentelemetry/instrumentation': 0.52.0(@opentelemetry/api@1.9.0)
+      '@opentelemetry/resources': 1.25.0(@opentelemetry/api@1.9.0)
+      '@opentelemetry/sdk-logs': 0.52.0(@opentelemetry/api@1.9.0)
+      '@opentelemetry/sdk-metrics': 1.25.0(@opentelemetry/api@1.9.0)
+      '@opentelemetry/sdk-trace-base': 1.25.0(@opentelemetry/api@1.9.0)
 
   acorn-import-attributes@1.9.5(acorn@8.12.0):
     dependencies:
