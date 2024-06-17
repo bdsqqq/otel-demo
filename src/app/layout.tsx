@@ -1,4 +1,4 @@
-import { register } from '../instrumentation';
+import { register } from '../../instrumentation';
 
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
