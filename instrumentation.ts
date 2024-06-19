@@ -5,6 +5,8 @@ import { SEMRESATTRS_SERVICE_NAME } from '@opentelemetry/semantic-conventions';
 import { SimpleSpanProcessor } from '@opentelemetry/sdk-trace-node';
 
 export function register() {
+    console.log('Registering OpenTelemetry...'); 
+
     const sdk = new NodeSDK({
         resource: new Resource({
             [SEMRESATTRS_SERVICE_NAME]: 'nextjs-app',
@@ -20,7 +22,12 @@ export function register() {
         ),
     });
 
-    sdk.start();
+    try {
+        sdk.start();
+        console.log('OpenTelemetry registered successfully.'); 
+    } catch (error) {
+        console.error('Failed to register OpenTelemetry:', error);
+    }
 }
 
 // import { OTLPTraceExporter } from "@opentelemetry/exporter-trace-otlp-http";
