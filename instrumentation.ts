@@ -10,16 +10,15 @@ export function register() {
     const sdk = new NodeSDK({
         resource: new Resource({
             [SEMRESATTRS_SERVICE_NAME]: 'nextjs-app',
-        }),
-        spanProcessor: new SimpleSpanProcessor(
+          }),
+          spanProcessor: new SimpleSpanProcessor(
             new OTLPTraceExporter({
-                url: 'https://api.axiom.co/v1/traces',
-                headers: {
-                    Authorization: `Bearer ${process.env.API_TOKEN}`,
-                    'X-Axiom-Dataset': process.env.DATASET_NAME,
-                },
-            })
-        ),
+              url: 'https://api.axiom.co/v1/traces',
+              headers: {
+                Authorization: `Bearer ${process.env.API_TOKEN}`,
+                'X-Axiom-Dataset': process.env.DATASET_NAME,
+              }
+        }))
     });
 
     try {
