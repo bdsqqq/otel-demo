@@ -1,9 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    experimental: {
-        // Enable the instrumentation hook for collecting telemetry data
-        instrumentationHook: true,
-      },
       webpack: (config, { isServer }) => {
         if (!isServer) {
           config.resolve.fallback = {
