@@ -1,22 +1,26 @@
 import { NodeSDK } from '@opentelemetry/sdk-node';
 import { OTLPTraceExporter } from '@opentelemetry/exporter-trace-otlp-http';
-import { Resource } from '@opentelemetry/resources';
-import { SEMRESATTRS_SERVICE_NAME } from '@opentelemetry/semantic-conventions';
+import { resourceFromAttributes } from '@opentelemetry/resources';
+import { ATTR_SERVICE_NAME } from '@opentelemetry/semantic-conventions';
 import { SimpleSpanProcessor } from '@opentelemetry/sdk-trace-node';
 
 export function register() {
     console.log('Registering OpenTelemetry...'); 
 
     const sdk = new NodeSDK({
-        resource: new Resource({
-            [SEMRESATTRS_SERVICE_NAME]: 'nextjs-app',
+        resource: resourceFromAttributes({
+            [ATTR_SERVICE_NAME]: 'nextjs-app',
           }),
           spanProcessor: new SimpleSpanProcessor(
             new OTLPTraceExporter({
               url: 'https://api.axiom.co/v1/traces',
               headers: {
-                Authorization: `Bearer ${process.env.API_TOKEN}`,
-                'X-Axiom-Dataset': process.env.DATASET_NAME,
+                ...(process.env.API_TOKEN && {
+                  Authorization: `Bearer ${process.env.API_TOKEN}`,
+                }),
+                ...(process.env.DATASET_NAME && {
+                  'X-Axiom-Dataset': process.env.DATASET_NAME,
+                }),
               }
         }))
     });
